@@ -85,6 +85,7 @@ class Respuesta {
       this.haLlegadoAlFinal = true;
       return true; // Indicar que ha llegado al final
     } else {
+      this.haLlegadoAlFinal = false;
       return false; // Indicar que no ha llegado al final
     }
   };
