@@ -1,23 +1,35 @@
 class Juego {
   constructor() {
-    // aqui hay que poner las propiedades del juego (elementos de pantalla)
-    // contador de vidas
-    // colision entre personaje y preguntas
-    // creamos el personaje del juego, new BugsBunny();
-    this.bugsBunny = new BugsBunny();
-
-    // cada nivel tiene sus propiedades - pero esto no se como hacerlo por ahora
-    this.cuadroPregunta = new Pregunta();
-    this.cuadroRespuestas = new Respuesta();
+    this.contadorPartidas = 0; // Inicializamos el contador en 0
+    this.iniciarPartida();
   }
 
-  // métodos
-  // 1 - accion: gameloop - bucle de juego
+  iniciarPartida() {
+    // Creamos una nueva instancia de Partida y aumentamos el contador
+    this.partida = new Partida();
+    this.contadorPartidas++;
+
+    console.log(`Partida ${this.contadorPartidas} iniciada.`);
+
+    // Verificar si el contador ha llegado a 3 para detener el juego
+    if (this.contadorPartidas === 4) {
+      console.log("El juego ha terminado. Se alcanzó el contador máximo.");
+      gameOver();
+    }
+    requestAnimationFrame(this.juegoLoop);
+  }
 
   juegoLoop = () => {
     // todo el movimiento del juego va aqui
-    // console.log("prueba del loop"); - funciona
-    requestAnimationFrame(this.juegoLoop);
+    this.partida.respuesta.efectoGravedadRespuestas();
+
+    if (this.partida.respuesta.haLlegadoAlFinal) {
+      console.log("El div ha llegado al final. Reiniciar el juego.");
+      this.iniciarPartida(); // Reiniciamos el juego cuando el div llega al final
+    } else {
+      // Continuamos el bucle del juego
+      requestAnimationFrame(this.juegoLoop);
+    }
   };
 }
 

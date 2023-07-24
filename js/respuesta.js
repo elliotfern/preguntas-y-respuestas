@@ -3,7 +3,7 @@ class Respuesta {
     // Crear un nuevo elemento div (contenedor principal)
     this.node = document.createElement("div");
 
-    // Estilizar el div (contenedor principal)
+    // Estilizar el div (contenedor principal)z
     this.node.style.padding = "10px";
     this.node.style.textAlign = "center";
     this.node.style.fontSize = "27px";
@@ -14,6 +14,9 @@ class Respuesta {
     this.y = 10; // eje y ;
     this.w = pantallaJuegoNode.offsetWidth - 200; // ancho
     this.h = 50; // alto
+
+    // Añadir una propiedad para el límite inferior
+    this.limiteInferior = pantallaJuegoNode.offsetHeight;
 
     // ajustar tamaños y posicion inicial del contenedor principal
     this.node.style.width = `${this.w}px`;
@@ -38,7 +41,7 @@ class Respuesta {
     const respuestaStyle = {
       backgroundColor: "lightblue",
       padding: "10px",
-      margin: "5px",
+      margin: "25px",
       fontSize: "18px",
       fontWeight: "bold",
     };
@@ -54,14 +57,35 @@ class Respuesta {
     this.node3.style.display = "inline-block";
     this.node4.style.display = "inline-block";
 
-    // Asignar contenido a las respuestas (puedes cambiarlos según lo desees)
-    this.node1.textContent = "Respuesta 1";
-    this.node2.textContent = "Respuesta 2";
-    this.node3.textContent = "Respuesta 3";
-    this.node4.textContent = "Respuesta 4";
+    // Obtener las opciones de respuesta del objeto pregunta y asignarlas a los divs
+
+    this.node1.textContent = "respuesta 1";
+    this.node2.textContent = "respuesta 2";
+    this.node3.textContent = "respuesta 3";
+    this.node4.textContent = "respuesta 4";
 
     // Agregar el contenedor principal al juegoNode
-    const juegoNode = document.getElementById("juego"); // Asegúrate de que el contenedor del juego tenga el ID "juego"
+    const juegoNode = document.querySelector("#juego");
     juegoNode.appendChild(this.node);
+
+    // Añadir una propiedad de velocidad vertical para el efecto de gravedad
+    this.velocidadY = 0;
   }
+
+  efectoGravedadRespuestas = () => {
+    this.velocidadY += 0.001;
+
+    // Aplicar la velocidad vertical a la posición del contenedor principal
+    this.y += this.velocidadY;
+    this.node.style.top = `${this.y}px`;
+
+    // Detectar si ha llegado al límite inferior
+    if (this.y + this.h >= this.limiteInferior) {
+      // Aquí booleano en false
+      this.haLlegadoAlFinal = true;
+      return true; // Indicar que ha llegado al final
+    } else {
+      return false; // Indicar que no ha llegado al final
+    }
+  };
 }

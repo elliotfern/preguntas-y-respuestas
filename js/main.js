@@ -26,5 +26,16 @@ const startGame = () => {
   juegoObj.juegoLoop();
 };
 
+const gameOver = () => {
+  pantallaFinNode.style.display = "flex";
+  pantallaJuegoNode.style.display = "none";
+};
+
 // * ADD EVENT LISTENERS *
 btnStartNode.addEventListener("click", startGame);
+
+// movimiento del bugs bunny
+// Añadir un event listener para escuchar los eventos de teclado
+document.addEventListener("keydown", (event) => {
+  this.juegoObj.partida.bugsBunny.movimientoBugs(event);
+});

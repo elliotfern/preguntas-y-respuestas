@@ -20,4 +20,17 @@ class BugsBunny {
   }
 
   // metodos
+  // Método para manejar el evento de tecla presionada
+  movimientoBugs(event) {
+    // Verificar qué tecla se presionó y actualizar las coordenadas del objeto
+    if (event.key === "ArrowLeft") {
+      this.x -= 10; // Mover hacia la izquierda
+    } else if (event.key === "ArrowRight") {
+      this.x += 10; // Mover hacia la derecha
+    } else if (event.key === "ArrowUp") {
+      this.y -= 10; // Mover hacia arriba
+    } else if (event.key === "ArrowDown") {
+      this.y += 10; // Mover hacia abajo
+    }
+  }
 }
