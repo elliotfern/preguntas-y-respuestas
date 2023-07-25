@@ -29,64 +29,30 @@ class Partida {
 
     this.collisionPreguntaCorrecta(indicePreguntaAleatoria);
   }
-
-  // colisiones // perdon por todos los console.log pero necesitaba verificar los datos
   collisionPreguntaCorrecta = (indice) => {
-    let respuestaCorrecta = preguntas[indice]["respuesta"];
-    // console.log(respuestaCorrecta); // funciona
-    // console.log(indice); // funciona
+    const respuestaCorrecta = preguntas[indice]["respuesta"];
+    const respuestas = [
+      this.respuesta1,
+      this.respuesta2,
+      this.respuesta3,
+      this.respuesta4,
+    ];
 
-    if (respuestaCorrecta === this.respuesta1.posicionCaja) {
-      console.log("respuesta correcta y indice COINCIDE");
-      if (
-        this.bugsBunny.x < this.respuesta1.x + this.respuesta1.w &&
-        this.bugsBunny.x + this.bugsBunny.w > this.respuesta1.x &&
-        this.bugsBunny.y < this.respuesta1.y + this.respuesta1.h &&
-        this.bugsBunny.y + this.bugsBunny.h > this.respuesta1.y
-      ) {
-        // Collision detected!
-        //this.gameOver();
-        console.log("has llegado a la respuesta correcta - 0");
-        this.partidaWin();
-      }
-    } else if (respuestaCorrecta === this.respuesta2.posicionCaja) {
-      console.log("respuesta correcta y indice COINCIDE");
-      if (
-        this.bugsBunny.x < this.respuesta2.x + this.respuesta2.w &&
-        this.bugsBunny.x + this.bugsBunny.w > this.respuesta2.x &&
-        this.bugsBunny.y < this.respuesta2.y + this.respuesta2.h &&
-        this.bugsBunny.y + this.bugsBunny.h > this.respuesta2.y
-      ) {
-        // Collision detected!
-        //this.gameOver();
-        console.log("has llegado a la respuesta correcta 1");
-        this.partidaWin();
-      }
-    } else if (respuestaCorrecta === this.respuesta3.posicionCaja) {
-      console.log("respuesta correcta y indice COINCIDE");
-      if (
-        this.bugsBunny.x < this.respuesta3.x + this.respuesta3.w &&
-        this.bugsBunny.x + this.bugsBunny.w > this.respuesta3.x &&
-        this.bugsBunny.y < this.respuesta3.y + this.respuesta3.h &&
-        this.bugsBunny.y + this.bugsBunny.h > this.respuesta3.y
-      ) {
-        // Collision detected!
-        //this.gameOver();
-        console.log("has llegado a la respuesta correcta 2");
-        this.partidaWin();
-      }
-    } else if (respuestaCorrecta === this.respuesta4.posicionCaja) {
-      console.log("respuesta correcta y indice COINCIDE");
-      if (
-        this.bugsBunny.x < this.respuesta4.x + this.respuesta4.w &&
-        this.bugsBunny.x + this.bugsBunny.w > this.respuesta4.x &&
-        this.bugsBunny.y < this.respuesta4.y + this.respuesta4.h &&
-        this.bugsBunny.y + this.bugsBunny.h > this.respuesta4.y
-      ) {
-        // Collision detected!
-        //this.gameOver();
-        console.log("has llegado a la respuesta correcta 3");
-        this.partidaWin();
+    for (let i = 0; i < respuestas.length; i++) {
+      const respuesta = respuestas[i];
+
+      if (respuestaCorrecta === respuesta.posicionCaja) {
+        if (
+          this.bugsBunny.x < respuesta.x + respuesta.w &&
+          this.bugsBunny.x + this.bugsBunny.w > respuesta.x &&
+          this.bugsBunny.y < respuesta.y + respuesta.h &&
+          this.bugsBunny.y + this.bugsBunny.h > respuesta.y
+        ) {
+          console.log(`has llegado a la respuesta correcta ${i}`);
+          respuesta.style.backgroundColor = "blue";
+          this.partidaWin();
+          return;
+        }
       }
     }
   };

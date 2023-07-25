@@ -10,7 +10,7 @@ class Pregunta {
     // Establecer algún contenido para el div
     this.node.textContent = preguntas[this.randomPreguntaIndice]["pregunta"];
     // guardar en propiedad de numero de respuesta correcta
-    // cuando se hace colision , esa respuestacorrecta va a tener un numero diferente
+    // cuando se hace colision , esa respuesta va a tener un numero diferente
 
     // Agregar el div al contenedor
     juegoNode.append(this.node);
