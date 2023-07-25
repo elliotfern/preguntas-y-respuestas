@@ -16,6 +16,7 @@ class Partida {
     const indicePreguntaAleatoria = Math.floor(
       Math.random() * preguntasConTema.length
     );
+    this.indicePreguntaAleatoria = indicePreguntaAleatoria;
 
     // cada nivel tiene sus propiedades - pero esto no se como hacerlo por ahora
     this.cuadroPregunta = new Pregunta(indicePreguntaAleatoria);
@@ -26,8 +27,6 @@ class Partida {
     this.respuesta3 = new Respuesta(indicePreguntaAleatoria, 2);
     this.respuesta4 = new Respuesta(indicePreguntaAleatoria, 3);
     // tengo que crear 4 respuesta - objeto 1, objeto 2, objeto 3, objeto 4
-
-    this.collisionPreguntaCorrecta(indicePreguntaAleatoria);
   }
   collisionPreguntaCorrecta = (indice) => {
     const respuestaCorrecta = preguntas[indice]["respuesta"];
@@ -38,9 +37,7 @@ class Partida {
       this.respuesta4,
     ];
 
-    for (let i = 0; i < respuestas.length; i++) {
-      const respuesta = respuestas[i];
-
+    respuestas.forEach((respuesta, i) => {
       if (respuestaCorrecta === respuesta.posicionCaja) {
         if (
           this.bugsBunny.x < respuesta.x + respuesta.w &&
@@ -49,12 +46,13 @@ class Partida {
           this.bugsBunny.y + this.bugsBunny.h > respuesta.y
         ) {
           console.log(`has llegado a la respuesta correcta ${i}`);
-          respuesta.style.backgroundColor = "blue";
+          console.log(respuesta.node);
+          respuesta.node1.style.backgroundColor = "blue";
           this.partidaWin();
           return;
         }
       }
-    }
+    });
   };
 
   partidaWin = () => {

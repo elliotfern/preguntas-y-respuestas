@@ -19,6 +19,10 @@ class Juego {
     this.partida.respuesta3.efectoGravedadRespuestas();
     this.partida.respuesta4.efectoGravedadRespuestas();
 
+    this.partida.collisionPreguntaCorrecta(
+      this.partida.indicePreguntaAleatoria
+    );
+
     if (this.partida.respuesta1.haLlegadoAlFinal === true) {
       console.log("El div ha llegado al final. Reiniciar el juego.");
       this.iniciarPartida(); // Reiniciamos el juego cuando el div llega al final
