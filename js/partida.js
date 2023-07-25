@@ -29,7 +29,7 @@ class Partida {
     }
 
     // cada nivel tiene sus propiedades - pero esto no se como hacerlo por ahora
-    this.cuadroPregunta = new Pregunta();
-    this.respuesta = new Respuesta();
+    this.cuadroPregunta = new Pregunta(preguntaAleatoria.pregunta);
+    this.respuesta = new Respuesta(opcion);
   }
 }
