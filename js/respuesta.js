@@ -1,5 +1,10 @@
 class Respuesta {
-  constructor(respuesta) {
+  constructor(respuestaIndice, posicionCaja) {
+    // argumentos: 1 - indice de la array
+    this.randomRespuestaIndice = respuestaIndice;
+
+    this.posicionCaja = posicionCaja;
+    console.log("posicion", this.posicionCaja);
     // Crear un nuevo elemento div (contenedor principal)
     this.node = document.createElement("div");
 
@@ -27,15 +32,20 @@ class Respuesta {
 
     // Crear los cuatro elementos <div> para las respuestas
     this.node1 = document.createElement("div");
-    this.node2 = document.createElement("div");
-    this.node3 = document.createElement("div");
-    this.node4 = document.createElement("div");
 
     // Agregar los cuatro divs al contenedor principal (this.node)
     this.node.appendChild(this.node1);
-    this.node.appendChild(this.node2);
-    this.node.appendChild(this.node3);
-    this.node.appendChild(this.node4);
+    let cajaLeft = "";
+
+    if (this.posicionCaja === 1) {
+      cajaLeft = 30;
+    } else if (this.posicionCaja === 2) {
+      cajaLeft = 130;
+    } else if (this.posicionCaja === 3) {
+      cajaLeft = 230;
+    } else if (this.posicionCaja === 4) {
+      cajaLeft = 330;
+    }
 
     // Estilizar los divs de las respuestas (opcional)
     const respuestaStyle = {
@@ -44,25 +54,19 @@ class Respuesta {
       margin: "25px",
       fontSize: "18px",
       fontWeight: "bold",
+      position: "absolute",
+      left: `${this.cajaLeft}px`,
     };
 
     Object.assign(this.node1.style, respuestaStyle);
-    Object.assign(this.node2.style, respuestaStyle);
-    Object.assign(this.node3.style, respuestaStyle);
-    Object.assign(this.node4.style, respuestaStyle);
 
     // Colocar las respuestas una al lado de la otra
     this.node1.style.display = "inline-block";
-    this.node2.style.display = "inline-block";
-    this.node3.style.display = "inline-block";
-    this.node4.style.display = "inline-block";
 
     // Obtener las opciones de respuesta del objeto pregunta y asignarlas a los divs
 
-    this.node1.textContent = "respuesta 1";
-    this.node2.textContent = "respuesta 2";
-    this.node3.textContent = "respuesta 3";
-    this.node4.textContent = "respuesta 4";
+    this.node1.textContent =
+      preguntas[this.randomRespuestaIndice]["opciones"][this.posicionCaja];
 
     // Agregar el contenedor principal al juegoNode
     const juegoNode = document.querySelector("#juego");

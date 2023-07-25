@@ -14,9 +14,12 @@ class Juego {
 
   juegoLoop = () => {
     // todo el movimiento del juego va aqui
-    this.partida.respuesta.efectoGravedadRespuestas();
+    this.partida.respuesta1.efectoGravedadRespuestas();
+    this.partida.respuesta2.efectoGravedadRespuestas();
+    this.partida.respuesta3.efectoGravedadRespuestas();
+    this.partida.respuesta4.efectoGravedadRespuestas();
 
-    if (this.partida.respuesta.haLlegadoAlFinal === true) {
+    if (this.partida.respuesta1.haLlegadoAlFinal === true) {
       console.log("El div ha llegado al final. Reiniciar el juego.");
       this.iniciarPartida(); // Reiniciamos el juego cuando el div llega al final
     } else {
@@ -41,7 +44,7 @@ class Juego {
 
 // propiedades
 // personaje >> dimensiones y posicion (x, y, w, h)
-// las cajas con las preguntas
+// las cajas con la pregunta
 // las cajas con las respuestas
 
 // metodos

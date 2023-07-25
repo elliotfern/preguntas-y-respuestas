@@ -1,13 +1,14 @@
 class Pregunta {
-  constructor(pregunta) {
+  constructor(preguntaIndice) {
     // propiedades
-    this.randomPregunta = pregunta;
+    this.randomPreguntaIndice = preguntaIndice;
 
     // Crear un nuevo elemento div
     this.node = document.createElement("div");
+    // guardar en propiedad respuesta correcta - comparar la repsuesta con la que estoy colisionando es el valor de mi respuesta
 
     // Establecer algún contenido para el div
-    this.node.textContent = this.randomPregunta;
+    this.node.textContent = preguntas[this.randomPreguntaIndice]["pregunta"];
 
     // Agregar el div al contenedor
     juegoNode.append(this.node);
