@@ -36,26 +36,28 @@ class Respuesta {
     // Agregar los cuatro divs al contenedor principal (this.node)
     this.node.appendChild(this.node1);
     let cajaLeft = "";
+    let indiceRespuesta = "";
 
-    if (this.posicionCaja === 1) {
-      cajaLeft = 30;
+    if (this.posicionCaja === 0) {
+      cajaLeft = 0;
+    } else if (this.posicionCaja === 1) {
+      cajaLeft = 250;
     } else if (this.posicionCaja === 2) {
-      cajaLeft = 130;
+      cajaLeft = 500;
     } else if (this.posicionCaja === 3) {
-      cajaLeft = 230;
-    } else if (this.posicionCaja === 4) {
-      cajaLeft = 330;
+      cajaLeft = 730;
     }
 
     // Estilizar los divs de las respuestas (opcional)
     const respuestaStyle = {
       backgroundColor: "lightblue",
       padding: "10px",
-      margin: "25px",
+      margin: "30px",
       fontSize: "18px",
       fontWeight: "bold",
       position: "absolute",
-      left: `${this.cajaLeft}px`,
+      width: "200px",
+      left: `${cajaLeft}px`,
     };
 
     Object.assign(this.node1.style, respuestaStyle);
