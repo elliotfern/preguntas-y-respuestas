@@ -38,18 +38,17 @@ class Partida {
     ];
 
     respuestas.forEach((respuesta, i) => {
-      if (respuestaCorrecta === respuesta.posicionCaja) {
-        if (
-          this.bugsBunny.x < respuesta.x + respuesta.w &&
-          this.bugsBunny.x + this.bugsBunny.w > respuesta.x &&
-          this.bugsBunny.y < respuesta.y + respuesta.h &&
-          this.bugsBunny.y + this.bugsBunny.h > respuesta.y
-        ) {
+      if (
+        this.bugsBunny.x < respuesta.x + respuesta.w &&
+        this.bugsBunny.x + this.bugsBunny.w > respuesta.x &&
+        this.bugsBunny.y < respuesta.y + respuesta.h &&
+        this.bugsBunny.y + this.bugsBunny.h > respuesta.y
+      ) {
+        if (respuestaCorrecta === respuesta.posicionCaja) {
           console.log(`has llegado a la respuesta correcta ${i}`);
-          console.log(respuesta.node);
-          respuesta.node1.style.backgroundColor = "blue";
+          console.log(respuesta.posicionCaja);
+          respuesta.node.style.backgroundColor = "blue";
           this.partidaWin();
-          return;
         }
       }
     });
