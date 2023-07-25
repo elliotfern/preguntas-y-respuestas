@@ -41,7 +41,7 @@ class Juego {
 
 // propiedades
 // personaje >> dimensiones y posicion (x, y, w, h)
-// las cajas con la pregunta
+// las cajas con las preguntas
 // las cajas con las respuestas
 
 // metodos

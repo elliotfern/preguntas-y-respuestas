@@ -1,12 +1,13 @@
 class Pregunta {
-  constructor() {
+  constructor(pregunta) {
     // propiedades
+    this.randomPregunta = pregunta;
 
     // Crear un nuevo elemento div
     this.node = document.createElement("div");
 
     // Establecer algún contenido para el div
-    this.node.textContent = "Pregunta";
+    this.node.textContent = this.randomPregunta;
 
     // Agregar el div al contenedor
     juegoNode.append(this.node);
@@ -33,4 +34,6 @@ class Pregunta {
     this.node.style.top = `${this.y}px`;
     this.node.style.left = `${this.x}px`;
   }
+
+  // metodos
 }

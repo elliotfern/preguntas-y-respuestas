@@ -24,13 +24,13 @@ class BugsBunny {
   movimientoBugs(event) {
     // Verificar qué tecla se presionó y actualizar las coordenadas del objeto
     if (event.key === "ArrowLeft") {
-      this.x -= 10; // Mover hacia la izquierda
+      this.node.style.left -= 10; // Mover hacia la izquierda
     } else if (event.key === "ArrowRight") {
-      this.x += 10; // Mover hacia la derecha
+      this.node.style.left += 10; // Mover hacia la derecha
     } else if (event.key === "ArrowUp") {
-      this.y -= 10; // Mover hacia arriba
+      this.node.style.top -= 10; // Mover hacia arriba
     } else if (event.key === "ArrowDown") {
-      this.y += 10; // Mover hacia abajo
+      this.node.style.top += 10; // Mover hacia abajo
     }
   }
 }

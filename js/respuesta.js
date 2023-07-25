@@ -1,9 +1,9 @@
 class Respuesta {
-  constructor() {
+  constructor(respuesta) {
     // Crear un nuevo elemento div (contenedor principal)
     this.node = document.createElement("div");
 
-    // Estilizar el div (contenedor principal)z
+    // Estilizar el div (contenedor principal)
     this.node.style.padding = "10px";
     this.node.style.textAlign = "center";
     this.node.style.fontSize = "27px";
