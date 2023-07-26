@@ -21,9 +21,9 @@ class Respuesta {
 
     //tamaños y posicion del div de la pregunta
     this.x = cajaLeft; // eje X;
-    this.y = 0; // eje y ;
+    this.y = 90; // eje y ;
     this.w = 250; // ancho
-    this.h = 60; // alto
+    this.h = 90; // alto
 
     // ajustar tamaños y posicion inicial
     this.node.style.width = `${this.w}px`;
@@ -34,15 +34,15 @@ class Respuesta {
 
     this.node.style.padding = "10px";
     this.node.style.margin = "0px 30px 0px 0px";
-    this.node.style.textAlign = "center";
+    this.node.style.display = "flex";
+    this.node.style.alignItems = "center";
+    this.node.style.justifyContent = "center";
     this.node.style.fontSize = "27px";
     this.node.style.fontWeight = "bold";
-    this.node.style.position = "absolute";
-    this.node.style.display = "inline-block";
     this.node.style.backgroundColor = "lightblue";
     this.node.style.border = "1px solid darkblue";
     this.node.style.borderRadius = "10px";
-    this.node.style.lineHeight = `${this.h}px`; // Ajusta la altura para centrar el texto
+    // Ajusta la altura para centrar el texto
 
     // Obtener las opciones de respuesta del objeto pregunta y asignarlas a los divs
 

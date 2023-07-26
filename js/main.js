@@ -4,6 +4,9 @@
 const btnStartNode = document.querySelector("#btn-start");
 const btnRestartNode = document.querySelector("#btn-reiniciar");
 
+// input
+const inputNode = document.querySelector("#input-usuario");
+
 // pantallas
 const pantallaInicioNode = document.querySelector("#pantalla-inicio");
 const pantallaJuegoNode = document.querySelector("#pantalla-juego");
@@ -15,6 +18,12 @@ const juegoNode = document.querySelector("#juego");
 
 // objeto juego
 let juegoObj = "";
+
+// recoger el nombre del usuario
+let nombre = "";
+btnStartNode.addEventListener("click", function () {
+  nombre = inputNode.value;
+});
 
 // * FUNCIONES DE MANIPULACIÓN DE ESTADOS *
 const startGame = () => {
@@ -28,7 +37,7 @@ const startGame = () => {
   // aqui queremos que el juego inicie. Hay que crear una clase que controle TODO el juego. Cuando el juego termine, lo podremos reiniciar, creando un nuevo objeto de la clase juego.
 
   // pendiente crear un nuevo objeto de juego y iniciar el bucle.
-  juegoObj = new Juego();
+  juegoObj = new Juego(nombre);
   juegoObj.juegoLoop();
 };
 
@@ -44,6 +53,7 @@ const gameWin = () => {
 
 // * ADD EVENT LISTENERS *
 btnStartNode.addEventListener("click", startGame);
+btnRestartNode.addEventListener("click", startGame);
 
 // movimiento del bugs bunny
 // Añadir un event listener para escuchar los eventos de teclado

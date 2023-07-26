@@ -13,10 +13,74 @@ const preguntas = [
     respuesta: 0,
     opciones: ["a) Buenos Aires", "b) Cordoba", "c) Mendoza", "d) La Plata"],
   },
+
+  {
+    tema: 1,
+    pregunta: "¿Cuál es el río más caudaloso del mundo?",
+    respuesta: 0,
+    opciones: ["a) Amazonas", "b) Missisipi", "c) Nilo", "d) Danubio"],
+  },
+
+  {
+    tema: 1,
+    pregunta: "¿Cuál es el país más extenso del mundo?",
+    respuesta: 0,
+    opciones: ["a) Rusia", "b) China", "c) Argentina", "d) Australia"],
+  },
+
+  {
+    tema: 1,
+    pregunta: "¿Cuál es el país de mayor población del mundo?",
+    respuesta: 2,
+    opciones: ["a) China", "b) Rusia", "c) India", "d) Australia"],
+  },
+
+  {
+    tema: 1,
+    pregunta: "¿Cuál es la capital de Nueva Zelanda?",
+    respuesta: 0,
+    opciones: ["a) Auckland", "b) Lima", "c) Singapur", "d) Adelaide"],
+  },
+
+  {
+    tema: 1,
+    pregunta: "¿Cuál es la capital de Australia?",
+    respuesta: 3,
+    opciones: ["a) Auckland", "b) París", "c) Lima", "d) Canberra"],
+  },
+
+  {
+    tema: 1,
+    pregunta: "¿Cuál es el monte más alto del mundo?",
+    respuesta: 2,
+    opciones: ["a) Montblanc", "b) Kilimanjaro", "c) Everest", "d) K2"],
+  },
+
+  {
+    tema: 1,
+    pregunta: "¿Dónde podemos encontrar la Casa Rosada?",
+    respuesta: 3,
+    opciones: ["a) India", "b) España", "c) Perú", "d) Argentina"],
+  },
+
+  {
+    tema: 1,
+    pregunta: "¿Cuál es la capital de Brasil?",
+    respuesta: 1,
+    opciones: ["a) Rio de Janeiro", "b) Brasilia", "c) Sao Paulo", "d) Manaus"],
+  },
+
+  {
+    tema: 1,
+    pregunta: "Qué cordillera separa Europa de Asia?",
+    respuesta: 2,
+    opciones: ["a) Pirineos", "b) Alpes", "c) Urales", "d) Tibet"],
+  },
+
   {
     tema: 2,
     pregunta:
-      " ¿Cómo se apellidaban los dos exploradores que dieron la primera vuelta al mundo?",
+      "¿Cómo se apellidaban los dos exploradores que dieron la primera vuelta al mundo?",
     respuesta: 2,
     opciones: [
       "a) Colón-Martinez",
@@ -39,15 +103,9 @@ const preguntas = [
   },
 
   {
-    tema: 1,
-    pregunta: "¿Cuál es el río más caudaloso del mundo?",
-    respuesta: 0,
-    opciones: ["a) Amazonas", "b) Missisipi", "c) Nilo", "d) Danubio"],
-  },
-  {
     tema: 2,
     pregunta:
-      "¿Quiénes fueron, según la leyenda, los dos hermanos fundadores de la ciudad de Roma",
+      "¿Quiénes fueron los dos hermanos fundadores de la ciudad de Roma",
     respuesta: 2,
     opciones: [
       "a) Roma y Remo",
@@ -60,7 +118,7 @@ const preguntas = [
   {
     tema: 3,
     pregunta:
-      "¿Quién fue el director y a la vez protagonista de la película “Ciudadano Kane”?",
+      "¿Quién fue el director y protagonista de la película “Ciudadano Kane”?",
     respuesta: 3,
     opciones: [
       "a) Federico Fellini",
@@ -73,7 +131,7 @@ const preguntas = [
   {
     tema: 4,
     pregunta:
-      " ¿Qué nadador estadounidense ganó cuatro medallas de oro y dos de plata en los Juegos Olímpicos de Londres de 2012?",
+      "¿Qué nadador estadounidense ganó cuatro medallas de oro y dos de plata en los Juegos Olímpicos de Londres de 2012?",
     respuesta: 2,
     opciones: [
       "a) Craig Benson",
@@ -81,12 +139,6 @@ const preguntas = [
       "c) Michael Phelps",
       "d) Robert Nay",
     ],
-  },
-  {
-    tema: 1,
-    pregunta: " ¿Cuál es el país de mayor tamaño del mundo?",
-    respuesta: 0,
-    opciones: ["a) Rusia", "b) China", "c) Argentina", "d) Australia"],
   },
 
   {
@@ -115,12 +167,6 @@ const preguntas = [
     opciones: ["a) Boxeo", "b) Taekwondo", "c) Samba", "d) capoeira"],
   },
 
-  {
-    tema: 1,
-    pregunta: "¿Cuál es el país de mayor población del mundo?",
-    respuesta: 3,
-    opciones: ["a) China", "b) Rusia", "c) India", "d) Australia"],
-  },
   {
     tema: 2,
     pregunta: "¿En que año se produjo el primer videojuego?",
@@ -153,12 +199,7 @@ const preguntas = [
       "d) Kilian Jornet",
     ],
   },
-  {
-    tema: 1,
-    pregunta: "¿Cuál es la capital de Nueva Zelanda?",
-    respuesta: 0,
-    opciones: ["a) Auckland", "b) Lima", "c) Singapur", "d) Adelaide"],
-  },
+
   {
     tema: 2,
     pregunta:

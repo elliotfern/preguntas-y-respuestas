@@ -28,9 +28,8 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 50px;
+  margin: 10px;
   border: solid 3px black;
-  border-radius: 20px;
   padding-bottom: 5px;
   height: 900px;
   width: 1200px;

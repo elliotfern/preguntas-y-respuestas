@@ -1,7 +1,20 @@
 class Partida {
-  constructor(numIndicePregunta) {
+  constructor(numIndicePregunta, partidas, vidas, win, nombre) {
     // propiedades
     this.numIndicePregunta = numIndicePregunta;
+    this.contadorPartidas = partidas;
+    this.contadorVidas = vidas;
+    this.contadorPartidasWin = win;
+    this.nombre = nombre;
+
+    this.contador = new Contador(
+      this.contadorPartidas,
+      this.contadorVidas,
+      this.contadorPartidasWin,
+      this.nombre
+    );
+
+    this.cuadroTema = new Tema(numIndicePregunta);
 
     // creamos el personaje del juego, new BugsBunny();
     this.bugsBunny = new BugsBunny();

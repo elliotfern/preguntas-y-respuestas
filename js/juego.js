@@ -1,25 +1,25 @@
 class Juego {
-  constructor() {
-    this.contadorPartidas = 0; // Inicializamos el contador en 0
+  constructor(nombre) {
+    this.nombre = nombre;
+    this.contadorPartidas = 1; // Inicializamos el contador en 1
+    this.contadorVidas = 3; // Inicializamos el contador en 3
+    this.contadorPartidasWin = 0; // Inicializamos el contador en 0
     this.numerosAleatorios = []; // Array para almacenar las preguntas aleatorias
     this.iniciarPartida();
   }
 
   // métodos de la clase Juego:
+
+  generarNumRandom = () => {
+    const longitudArray = preguntas.length;
+    const indicePreguntaAleatoria = Math.floor(Math.random() * longitudArray);
+    return indicePreguntaAleatoria;
+  };
+
   randomEligirPregunta = () => {
-    // random - elegir el tema de las preguntas
-    const randomPregunta = Math.floor(Math.random() * 4) + 1;
-    const preguntasConTema = preguntas.filter(
-      (pregunta) => pregunta.tema === randomPregunta
-    );
-
-    // Si hay preguntas con el tema aleatorio seleccionado
-    const indicePreguntaAleatoria = Math.floor(
-      Math.random() * preguntasConTema.length
-    );
-
+    const indicePreguntaAleatoria = this.generarNumRandom();
     if (this.numerosAleatorios.includes(indicePreguntaAleatoria)) {
-      return this.randomEligirPregunta();
+      return this.generarNumRandom();
     } else {
       this.numerosAleatorios.push(indicePreguntaAleatoria); // Guardar el número aleatorio en el array
       return indicePreguntaAleatoria;
@@ -29,7 +29,13 @@ class Juego {
   iniciarPartida() {
     // Creamos una nueva instancia de Partida y aumentamos el contador
     this.preguntaAleatoria = this.randomEligirPregunta(); // necesito este valor para poderlo usar en los otros métodos
-    this.partida = new Partida(this.preguntaAleatoria);
+    this.partida = new Partida(
+      this.preguntaAleatoria,
+      this.contadorPartidas,
+      this.contadorVidas,
+      this.contadorPartidasWin,
+      this.nombre
+    );
 
     this.juegoLoop();
   }
@@ -52,6 +58,7 @@ class Juego {
       ) {
         if (respuestaCorrecta === respuesta.posicionCaja) {
           respuesta.node.style.backgroundColor = "blue";
+          this.contadorPartidasWin++;
           this.partidaWin();
         }
       }
@@ -59,18 +66,39 @@ class Juego {
   };
 
   partidaWin = () => {
-    this.partida.bugsBunny.node.style.display = "none";
-    this.partida.respuesta1.node.style.display = "none";
-    this.partida.respuesta2.node.style.display = "none";
-    this.partida.respuesta3.node.style.display = "none";
-    this.partida.respuesta4.node.style.display = "none";
+    this.partida.bugsBunny.node.remove();
+    this.partida.respuesta1.node.remove();
+    this.partida.respuesta2.node.remove();
+    this.partida.respuesta3.node.remove();
+    this.partida.respuesta4.node.remove();
 
-    // Verificar si el contador ha llegado a 10 > HAS GANADO !
-    if (this.contadorPartidas === 10) {
+    // Verificar si el contador ha llegado a 10 PREGUNTAS CORRECTAS > HAS GANADO
+    if (this.contadorPartidasWin === 10) {
+      this.partida.bugsBunny.node.remove();
+      this.partida.respuesta1.node.remove();
+      this.partida.respuesta2.node.remove();
+      this.partida.respuesta3.node.remove();
+      this.partida.respuesta4.node.remove();
       gameWin();
+      this.numerosAleatorios = [];
+    } else if (this.contadorPartidas === 20) {
+      this.partida.bugsBunny.node.remove();
+      this.partida.respuesta1.node.remove();
+      this.partida.respuesta2.node.remove();
+      this.partida.respuesta3.node.remove();
+      this.partida.respuesta4.node.remove();
+      gameOver();
+      this.numerosAleatorios = [];
     } else {
       this.contadorPartidas++;
-      this.iniciarPartida();
+      this.preguntaAleatoria = this.randomEligirPregunta(); // necesito este valor para poderlo usar en los otros métodos
+      this.partida = new Partida(
+        this.preguntaAleatoria,
+        this.contadorPartidas,
+        this.contadorVidas,
+        this.contadorPartidasWin,
+        this.nombre
+      );
     }
   };
 
@@ -84,38 +112,29 @@ class Juego {
     this.collisionPreguntaCorrecta(this.preguntaAleatoria);
 
     if (this.partida.respuesta1.haLlegadoAlFinal === true) {
-      this.partida.bugsBunny.node.style.display = "none";
-      this.partida.respuesta1.node.style.display = "none";
-      this.partida.respuesta2.node.style.display = "none";
-      this.partida.respuesta3.node.style.display = "none";
-      this.partida.respuesta4.node.style.display = "none";
+      this.partida.bugsBunny.node.remove();
+      this.partida.respuesta1.node.remove();
+      this.partida.respuesta2.node.remove();
+      this.partida.respuesta3.node.remove();
+      this.partida.respuesta4.node.remove();
+      this.contadorVidas--;
       this.contadorPartidas++;
       this.iniciarPartida(); // Reiniciamos el juego cuando el div llega al final
     } else {
       // Continuamos el bucle del juego
 
       // Verificar si el contador ha llegado a 3 para detener el juego
-      if (this.contadorPartidas >= 3) {
+      if (this.contadorVidas === 0) {
+        this.partida.bugsBunny.node.remove();
+        this.partida.respuesta1.node.remove();
+        this.partida.respuesta2.node.remove();
+        this.partida.respuesta3.node.remove();
+        this.partida.respuesta4.node.remove();
         gameOver();
+        this.numerosAleatorios = [];
       } else {
         requestAnimationFrame(this.juegoLoop);
       }
     }
   };
 }
-
-// planificación del juego
-
-// propiedades
-// personaje >> dimensiones y posicion (x, y, w, h)
-// las cajas con la pregunta
-// las cajas con las respuestas
-
-// metodos
-// hay que hacer el efecto random para el reparto de los temas (4 tematicas de preguntas)
-// hay que crear el movimiento del personaje que se moverá hasta la carta correcta
-// controlar de vidas
-// controlar colisiones - resta vidas
-// gameover > te has quedado sin las vidas /se pierde.
-// gameover > has acertado todas las preguntas
-//incrementar puntuacion
