@@ -1,11 +1,8 @@
 class Respuesta {
   constructor(respuestaIndice, posicionCaja) {
     // argumentos: 1 - indice de la array
-    this.randomRespuestaIndice = respuestaIndice;
 
     this.posicionCaja = posicionCaja;
-    //console.log("posicion", this.posicionCaja);
-    // Crear un nuevo elemento div (contenedor principal)
 
     // Añadir una propiedad para el límite inferior
     this.limiteInferior = pantallaJuegoNode.offsetHeight;
@@ -14,7 +11,6 @@ class Respuesta {
 
     // Agregar los cuatro divs al contenedor principal (this.node)
     let cajaLeft = "";
-    let indiceRespuesta = "";
 
     if (this.posicionCaja === 0) {
       cajaLeft = 10;
@@ -50,7 +46,7 @@ class Respuesta {
       // Obtener las opciones de respuesta del objeto pregunta y asignarlas a los divs
 
       (this.node.textContent =
-        preguntas[this.randomRespuestaIndice]["opciones"][this.posicionCaja]);
+        preguntas[respuestaIndice]["opciones"][this.posicionCaja]);
 
     // Agregar el contenedor principal al juegoNode
     const juegoNode = document.querySelector("#juego");

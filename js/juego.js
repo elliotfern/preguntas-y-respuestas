@@ -4,9 +4,24 @@ class Juego {
     this.iniciarPartida();
   }
 
+  randomEligirPregunta = () => {
+    // random - elegir el tema de las preguntas
+    const randomPregunta = Math.floor(Math.random() * 4) + 1;
+    const preguntasConTema = preguntas.filter(
+      (pregunta) => pregunta.tema === randomPregunta
+    );
+
+    // Si hay preguntas con el tema aleatorio seleccionado
+    const indicePreguntaAleatoria = Math.floor(
+      Math.random() * preguntasConTema.length
+    );
+    console.log("indice random ", indicePreguntaAleatoria);
+    return indicePreguntaAleatoria;
+  };
+
   iniciarPartida() {
     // Creamos una nueva instancia de Partida y aumentamos el contador
-    this.partida = new Partida();
+    this.partida = new Partida(this.randomEligirPregunta());
     this.contadorPartidas++;
     console.log(`Partida ${this.contadorPartidas} iniciada.`);
     this.juegoLoop();

@@ -2,6 +2,7 @@ class Pregunta {
   constructor(preguntaIndice) {
     // propiedades
     this.randomPreguntaIndice = preguntaIndice;
+    console.log(preguntaIndice);
 
     // Crear un nuevo elemento div
     this.node = document.createElement("div");
