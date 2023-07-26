@@ -2,7 +2,7 @@ class BugsBunny {
   constructor() {
     // propiedades
     this.node = document.createElement("img");
-    this.node.src = "./images/bugs-bunny.png";
+    this.node.src = "./../images/bugs-bunny.png";
     juegoNode.append(this.node);
 
     //tamaños y posicion de bugs bunny

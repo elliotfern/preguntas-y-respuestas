@@ -8,6 +8,7 @@ const btnRestartNode = document.querySelector("#btn-reiniciar");
 const pantallaInicioNode = document.querySelector("#pantalla-inicio");
 const pantallaJuegoNode = document.querySelector("#pantalla-juego");
 const pantallaFinNode = document.querySelector("#pantalla-fin");
+const pantallaFinWinNode = document.querySelector("#pantalla-fin-win");
 
 // nodo juego
 const juegoNode = document.querySelector("#juego");
@@ -18,6 +19,8 @@ let juegoObj = "";
 // * FUNCIONES DE MANIPULACIÓN DE ESTADOS *
 const startGame = () => {
   pantallaInicioNode.style.display = "none";
+  pantallaFinWinNode.style.display = "none";
+  pantallaFinNode.style.display = "none";
   pantallaJuegoNode.style.display = "flex";
 
   // console.log("Iniciando el juego. Llamo la función startGame");
@@ -31,6 +34,11 @@ const startGame = () => {
 
 const gameOver = () => {
   pantallaFinNode.style.display = "flex";
+  pantallaJuegoNode.style.display = "none";
+};
+
+const gameWin = () => {
+  pantallaFinWinNode.style.display = "flex";
   pantallaJuegoNode.style.display = "none";
 };
 

@@ -58,7 +58,8 @@ body {
 }
 
 #pantalla-juego,
-#pantalla-fin {
+#pantalla-fin,
+#pantalla-fin-win {
   display: none;
 }
 

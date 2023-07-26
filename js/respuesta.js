@@ -1,12 +1,9 @@
 class Respuesta {
   constructor(respuestaIndice, posicionCaja) {
-    // argumentos: 1 - indice de la array
-
     this.posicionCaja = posicionCaja;
 
     // Añadir una propiedad para el límite inferior
     this.limiteInferior = pantallaJuegoNode.offsetHeight;
-
     this.node = document.createElement("div");
 
     // Agregar los cuatro divs al contenedor principal (this.node)
@@ -26,7 +23,7 @@ class Respuesta {
     this.x = cajaLeft; // eje X;
     this.y = 0; // eje y ;
     this.w = 250; // ancho
-    this.h = 30; // alto
+    this.h = 60; // alto
 
     // ajustar tamaños y posicion inicial
     this.node.style.width = `${this.w}px`;
@@ -42,11 +39,15 @@ class Respuesta {
     this.node.style.fontWeight = "bold";
     this.node.style.position = "absolute";
     this.node.style.display = "inline-block";
-    (this.node.style.backgroundColor = "lightblue"),
-      // Obtener las opciones de respuesta del objeto pregunta y asignarlas a los divs
+    this.node.style.backgroundColor = "lightblue";
+    this.node.style.border = "1px solid darkblue";
+    this.node.style.borderRadius = "10px";
+    this.node.style.lineHeight = `${this.h}px`; // Ajusta la altura para centrar el texto
 
-      (this.node.textContent =
-        preguntas[respuestaIndice]["opciones"][this.posicionCaja]);
+    // Obtener las opciones de respuesta del objeto pregunta y asignarlas a los divs
+
+    this.node.textContent =
+      preguntas[respuestaIndice]["opciones"][this.posicionCaja];
 
     // Agregar el contenedor principal al juegoNode
     const juegoNode = document.querySelector("#juego");

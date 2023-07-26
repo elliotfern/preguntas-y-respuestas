@@ -1,9 +1,11 @@
 class Juego {
   constructor() {
     this.contadorPartidas = 0; // Inicializamos el contador en 0
+    this.numerosAleatorios = []; // Array para almacenar las preguntas aleatorias
     this.iniciarPartida();
   }
 
+  // métodos de la clase Juego:
   randomEligirPregunta = () => {
     // random - elegir el tema de las preguntas
     const randomPregunta = Math.floor(Math.random() * 4) + 1;
@@ -15,17 +17,62 @@ class Juego {
     const indicePreguntaAleatoria = Math.floor(
       Math.random() * preguntasConTema.length
     );
-    console.log("indice random ", indicePreguntaAleatoria);
-    return indicePreguntaAleatoria;
+
+    if (this.numerosAleatorios.includes(indicePreguntaAleatoria)) {
+      return this.randomEligirPregunta();
+    } else {
+      this.numerosAleatorios.push(indicePreguntaAleatoria); // Guardar el número aleatorio en el array
+      return indicePreguntaAleatoria;
+    }
   };
 
   iniciarPartida() {
     // Creamos una nueva instancia de Partida y aumentamos el contador
-    this.partida = new Partida(this.randomEligirPregunta());
-    this.contadorPartidas++;
-    console.log(`Partida ${this.contadorPartidas} iniciada.`);
+    this.preguntaAleatoria = this.randomEligirPregunta(); // necesito este valor para poderlo usar en los otros métodos
+    this.partida = new Partida(this.preguntaAleatoria);
+
     this.juegoLoop();
   }
+
+  collisionPreguntaCorrecta = (indice) => {
+    const respuestaCorrecta = preguntas[this.preguntaAleatoria]["respuesta"];
+    const respuestas = [
+      this.partida.respuesta1,
+      this.partida.respuesta2,
+      this.partida.respuesta3,
+      this.partida.respuesta4,
+    ];
+
+    respuestas.forEach((respuesta, i) => {
+      if (
+        this.partida.bugsBunny.x < respuesta.x + respuesta.w &&
+        this.partida.bugsBunny.x + this.partida.bugsBunny.w > respuesta.x &&
+        this.partida.bugsBunny.y < respuesta.y + respuesta.h &&
+        this.partida.bugsBunny.y + this.partida.bugsBunny.h > respuesta.y
+      ) {
+        if (respuestaCorrecta === respuesta.posicionCaja) {
+          respuesta.node.style.backgroundColor = "blue";
+          this.partidaWin();
+        }
+      }
+    });
+  };
+
+  partidaWin = () => {
+    this.partida.bugsBunny.node.style.display = "none";
+    this.partida.respuesta1.node.style.display = "none";
+    this.partida.respuesta2.node.style.display = "none";
+    this.partida.respuesta3.node.style.display = "none";
+    this.partida.respuesta4.node.style.display = "none";
+
+    // Verificar si el contador ha llegado a 10 > HAS GANADO !
+    if (this.contadorPartidas === 10) {
+      gameWin();
+    } else {
+      this.contadorPartidas++;
+      this.iniciarPartida();
+    }
+  };
 
   juegoLoop = () => {
     // todo el movimiento del juego va aqui
@@ -34,26 +81,24 @@ class Juego {
     this.partida.respuesta3.efectoGravedadRespuestas();
     this.partida.respuesta4.efectoGravedadRespuestas();
 
-    this.partida.collisionPreguntaCorrecta(
-      this.partida.indicePreguntaAleatoria
-    );
+    this.collisionPreguntaCorrecta(this.preguntaAleatoria);
 
     if (this.partida.respuesta1.haLlegadoAlFinal === true) {
-      console.log("El div ha llegado al final. Reiniciar el juego.");
+      this.partida.bugsBunny.node.style.display = "none";
+      this.partida.respuesta1.node.style.display = "none";
+      this.partida.respuesta2.node.style.display = "none";
+      this.partida.respuesta3.node.style.display = "none";
+      this.partida.respuesta4.node.style.display = "none";
+      this.contadorPartidas++;
       this.iniciarPartida(); // Reiniciamos el juego cuando el div llega al final
     } else {
       // Continuamos el bucle del juego
 
       // Verificar si el contador ha llegado a 3 para detener el juego
-      if (this.contadorPartidas >= 4) {
-        console.log("El juego ha terminado. Se alcanzó el contador máximo.");
+      if (this.contadorPartidas >= 3) {
         gameOver();
-        console.log(`stop partidas >>> ${this.contadorPartidas} iniciada.`);
       } else {
         requestAnimationFrame(this.juegoLoop);
-        console.log(
-          `iniciar partida >>> Partida ${this.contadorPartidas} iniciada.`
-        );
       }
     }
   };

@@ -34,7 +34,7 @@ const preguntas = [
   {
     tema: 4,
     pregunta: "¿En qué año ganó España su primer mundial de Futbol?",
-    respuesta: 1,
+    respuesta: 2,
     opciones: ["a) 1998", "b) 1984", "c) 2010", "d) 1965"],
   },
 

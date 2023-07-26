@@ -2,8 +2,7 @@ class Pregunta {
   constructor(preguntaIndice) {
     // propiedades
     this.randomPreguntaIndice = preguntaIndice;
-    console.log(preguntaIndice);
-
+   
     // Crear un nuevo elemento div
     this.node = document.createElement("div");
     // guardar en propiedad respuesta correcta - comparar la repsuesta con la que estoy colisionando es el valor de mi respuesta
@@ -15,20 +14,21 @@ class Pregunta {
 
     // Agregar el div al contenedor
     juegoNode.append(this.node);
-    console.log(this.node);
 
-    // Estilizar el div (opcional)
+    // Estilizar el div
     this.node.style.backgroundColor = "chocolate";
     this.node.style.padding = "10px";
     this.node.style.border = "1px solid darkblue";
     this.node.style.textAlign = "center";
     this.node.style.fontSize = "27px";
     this.node.style.fontWeight = "bold";
+    this.node.style.borderRadius = "10px";
+    this.node.style.paddingTop = "15px";
 
     //tamaños y posicion del div de la pregunta
-    this.x = 100; // eje X;
+    this.x = 30; // eje X;
     this.y = pantallaJuegoNode.offsetHeight - 90; // eje y ;
-    this.w = pantallaJuegoNode.offsetWidth - 200; // ancho
+    this.w = pantallaJuegoNode.offsetWidth - 100; // ancho
     this.h = 50; // alto
 
     // ajustar tamaños y posicion inicial
@@ -38,6 +38,4 @@ class Pregunta {
     this.node.style.top = `${this.y}px`;
     this.node.style.left = `${this.x}px`;
   }
-
-  // metodos
 }
