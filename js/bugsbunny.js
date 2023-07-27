@@ -15,6 +15,9 @@ class BugsBunny {
     } else if (personaje === 4) {
       this.img =
         "https://raw.githubusercontent.com/elliotfern/preguntas-y-respuestas/main/images/demonio.png";
+    } else {
+      this.img =
+        "https://raw.githubusercontent.com/elliotfern/preguntas-y-respuestas/main/images/bugs-bunny.png";
     }
 
     this.node.src = this.img;

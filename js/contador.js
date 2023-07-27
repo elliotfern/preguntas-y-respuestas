@@ -4,6 +4,9 @@ class Contador {
     this.vidas = vidas;
     this.win = win;
     this.nombre = nombre;
+    if (this.nombre === "") {
+      this.nombre = "Jugador1";
+    }
 
     // Añadir una propiedad para el límite inferior
     this.node = document.createElement("div");

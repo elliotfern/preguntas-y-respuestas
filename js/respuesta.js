@@ -27,6 +27,8 @@ class Respuesta {
       this.velocidad = 0.005;
     } else if (this.nivel === 3) {
       this.velocidad = 0.01;
+    } else {
+      this.velocidad = 0.001;
     }
 
     //tamaños y posicion del div de la pregunta

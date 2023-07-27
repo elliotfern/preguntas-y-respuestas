@@ -22,9 +22,8 @@ class Juego {
   randomEligirPregunta = () => {
     const indicePreguntaAleatoria = this.generarNumRandom();
     if (this.numerosAleatorios.includes(indicePreguntaAleatoria)) {
-      return this.generarNumRandom();
+      this.randomEligirPregunta();
     } else {
-      this.numerosAleatorios.push(indicePreguntaAleatoria); // Guardar el número aleatorio en el array
       return indicePreguntaAleatoria;
     }
   };
