@@ -1,9 +1,24 @@
 class BugsBunny {
-  constructor() {
+  constructor(personaje) {
     // propiedades
+    console.log(personaje);
+    this.personaje = personaje;
     this.node = document.createElement("img");
-    this.node.src =
-      "https://raw.githubusercontent.com/elliotfern/preguntas-y-respuestas/main/images/bugs-bunny.png";
+    if (personaje === 1) {
+      this.img =
+        "https://raw.githubusercontent.com/elliotfern/preguntas-y-respuestas/main/images/bugs-bunny.png";
+    } else if (personaje === 2) {
+      this.img =
+        "https://raw.githubusercontent.com/elliotfern/preguntas-y-respuestas/main/images/coyote.png";
+    } else if (personaje === 3) {
+      this.img =
+        "https://raw.githubusercontent.com/elliotfern/preguntas-y-respuestas/main/images/piolin.png";
+    } else if (personaje === 4) {
+      this.img =
+        "https://raw.githubusercontent.com/elliotfern/preguntas-y-respuestas/main/images/deportes.png";
+    }
+
+    this.node.src = this.img;
     juegoNode.append(this.node);
 
     //tamaños y posicion de bugs bunny

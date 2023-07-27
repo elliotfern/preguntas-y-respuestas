@@ -65,6 +65,17 @@ body {
   text-transform: capitalize;
 }
 
+.btn-personaje a:active {
+  background-color: rgb(212, 60, 22);
+  color: white;
+  padding: 20px;
+  font-size: 24px;
+  margin-top: 5px;
+  border-radius: 20px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
 .container {
   display: flex;
   flex-direction: column;
