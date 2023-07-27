@@ -1,7 +1,6 @@
 class BugsBunny {
   constructor(personaje) {
     // propiedades
-    console.log(personaje);
     this.personaje = personaje;
     this.node = document.createElement("img");
     if (personaje === 1) {
@@ -15,7 +14,7 @@ class BugsBunny {
         "https://raw.githubusercontent.com/elliotfern/preguntas-y-respuestas/main/images/piolin.png";
     } else if (personaje === 4) {
       this.img =
-        "https://raw.githubusercontent.com/elliotfern/preguntas-y-respuestas/main/images/deportes.png";
+        "https://raw.githubusercontent.com/elliotfern/preguntas-y-respuestas/main/images/demonio.png";
     }
 
     this.node.src = this.img;

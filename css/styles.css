@@ -43,7 +43,8 @@ body {
 }
 
 #btn-start,
-#btn-reiniciar {
+#btn-reiniciar,
+#btn-juegoNuevo {
   background-color: chocolate;
   color: white;
   padding: 20px;
@@ -65,7 +66,7 @@ body {
   text-transform: capitalize;
 }
 
-.btn-personaje a:active {
+.btn-personaje.active {
   background-color: rgb(212, 60, 22);
   color: white;
   padding: 20px;
@@ -103,7 +104,6 @@ body {
 #pantalla-juego {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("../images/wallpaper.jpg");
-  opacity: 0.5;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

@@ -3,6 +3,7 @@
 // botones
 const btnStartNode = document.querySelector("#btn-start");
 const btnRestartNode = document.querySelector("#btn-reiniciar");
+const btnJuegoNuevo = document.querySelector("#btn-juegoNuevo");
 
 const btnBugs = document.querySelector("#btnBugs");
 const btnCoyote = document.querySelector("#btnCoyote");
@@ -84,6 +85,14 @@ btnDemonio.addEventListener("click", function () {
 });
 
 // * FUNCIONES DE MANIPULACIÓN DE ESTADOS *
+
+const startScreen = () => {
+  pantallaInicioNode.style.display = "flex";
+  pantallaFinWinNode.style.display = "none";
+  pantallaFinNode.style.display = "none";
+  pantallaJuegoNode.style.display = "none";
+};
+
 const startGame = () => {
   pantallaInicioNode.style.display = "none";
   pantallaFinWinNode.style.display = "none";
@@ -109,7 +118,8 @@ const gameWin = () => {
 
 // * ADD EVENT LISTENERS *
 btnStartNode.addEventListener("click", startGame);
-btnRestartNode.addEventListener("click", startGame);
+btnRestartNode.addEventListener("click", startScreen);
+btnJuegoNuevo.addEventListener("click", startScreen);
 
 // movimiento del bugs bunny
 // Añadir un event listener para escuchar los eventos de teclado

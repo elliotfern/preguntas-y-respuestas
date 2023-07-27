@@ -7,6 +7,7 @@ class Juego {
     this.contadorPartidasWin = 0; // Inicializamos el contador en 0
     this.numerosAleatorios = []; // Array para almacenar las preguntas aleatorias
     this.iniciarPartida();
+    this.gameOn = true;
   }
 
   // métodos de la clase Juego:
@@ -81,14 +82,16 @@ class Juego {
       this.partida.respuesta2.node.remove();
       this.partida.respuesta3.node.remove();
       this.partida.respuesta4.node.remove();
-      gameWin();
+      this.gameOn = false;
       this.numerosAleatorios = [];
+      gameWin();
     } else if (this.contadorPartidas === 20) {
       this.partida.bugsBunny.node.remove();
       this.partida.respuesta1.node.remove();
       this.partida.respuesta2.node.remove();
       this.partida.respuesta3.node.remove();
       this.partida.respuesta4.node.remove();
+      this.gameOn = false;
       gameOver();
       this.numerosAleatorios = [];
     } else {
@@ -122,6 +125,7 @@ class Juego {
       this.partida.respuesta4.node.remove();
       this.contadorVidas--;
       this.contadorPartidas++;
+      this.gameOn = true;
       this.iniciarPartida(); // Reiniciamos el juego cuando el div llega al final
     } else {
       // Continuamos el bucle del juego
@@ -133,10 +137,13 @@ class Juego {
         this.partida.respuesta2.node.remove();
         this.partida.respuesta3.node.remove();
         this.partida.respuesta4.node.remove();
-        gameOver();
+        this.gameOn = false;
         this.numerosAleatorios = [];
+        gameOver();
       } else {
-        requestAnimationFrame(this.juegoLoop);
+        if (this.gameOn === true) {
+          requestAnimationFrame(this.juegoLoop);
+        }
       }
     }
   };
