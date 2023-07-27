@@ -10,6 +10,10 @@ const btnCoyote = document.querySelector("#btnCoyote");
 const btnPiolin = document.querySelector("#btnPiolin");
 const btnDemonio = document.querySelector("#btnDemonio");
 
+const btnFacil = document.querySelector("#btnFacil");
+const btnIntermedio = document.querySelector("#btnIntermedio");
+const btnMuerte = document.querySelector("#btnMuerte");
+
 // input
 const inputNode = document.querySelector("#input-usuario");
 
@@ -32,6 +36,7 @@ btnStartNode.addEventListener("click", function () {
 });
 
 // botones personajes
+let personaje = 0;
 // bus bunny
 btnBugs.addEventListener("click", function () {
   // Cambiar el color del botón cuando se hace clic
@@ -84,6 +89,47 @@ btnDemonio.addEventListener("click", function () {
   }
 });
 
+// botones NIVEL
+let nivel = 0;
+btnFacil.addEventListener("click", function () {
+  // Cambiar el color del botón cuando se hace clic
+  btnFacil.classList.toggle("active");
+
+  // Generar la variable que se enviará después
+  if (btnFacil.classList.contains("active")) {
+    nivel = 1;
+    console.log(nivel);
+  } else {
+    nivel = 0;
+  }
+});
+
+btnIntermedio.addEventListener("click", function () {
+  // Cambiar el color del botón cuando se hace clic
+  btnIntermedio.classList.toggle("active");
+
+  // Generar la variable que se enviará después
+  if (btnIntermedio.classList.contains("active")) {
+    nivel = 2;
+    console.log(nivel);
+  } else {
+    nivel = 0;
+  }
+});
+
+btnMuerte.addEventListener("click", function () {
+  // Cambiar el color del botón cuando se hace clic
+  btnMuerte.classList.toggle("active");
+
+  // Generar la variable que se enviará después
+  if (btnMuerte.classList.contains("active")) {
+    nivel = 3;
+    console.log(nivel);
+  } else {
+    nivel = 0;
+  }
+});
+
 // * FUNCIONES DE MANIPULACIÓN DE ESTADOS *
 
 const startScreen = () => {
@@ -102,7 +148,7 @@ const startGame = () => {
   // aqui queremos que el juego inicie. Hay que crear una clase que controle TODO el juego. Cuando el juego termine, lo podremos reiniciar, creando un nuevo objeto de la clase juego.
 
   // pendiente crear un nuevo objeto de juego y iniciar el bucle.
-  juegoObj = new Juego(nombre, personaje);
+  juegoObj = new Juego(nombre, personaje, nivel);
   juegoObj.juegoLoop();
 };
 

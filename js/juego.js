@@ -1,7 +1,8 @@
 class Juego {
-  constructor(nombre, personaje) {
+  constructor(nombre, personaje, nivel) {
     this.nombre = nombre;
     this.personaje = personaje;
+    this.nivel = nivel;
     this.contadorPartidas = 1; // Inicializamos el contador en 1
     this.contadorVidas = 3; // Inicializamos el contador en 3
     this.contadorPartidasWin = 0; // Inicializamos el contador en 0
@@ -37,7 +38,8 @@ class Juego {
       this.contadorVidas,
       this.contadorPartidasWin,
       this.nombre,
-      this.personaje
+      this.personaje,
+      this.nivel
     );
 
     this.juegoLoop();
@@ -103,7 +105,8 @@ class Juego {
         this.contadorVidas,
         this.contadorPartidasWin,
         this.nombre,
-        this.personaje
+        this.personaje,
+        this.nivel
       );
     }
   };

@@ -68,13 +68,22 @@ body {
 
 .btn-personaje.active {
   background-color: rgb(212, 60, 22);
+}
+
+.btn-nivel {
+  background-color: rgb(107, 87, 20);
   color: white;
   padding: 20px;
   font-size: 24px;
-  margin-top: 5px;
+  margin-top: 05px;
+  margin-right: 44px;
   border-radius: 20px;
   font-weight: bold;
   text-transform: capitalize;
+}
+
+.btn-nivel.active {
+  background-color: rgb(212, 60, 22);
 }
 
 .container {

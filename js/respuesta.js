@@ -1,6 +1,7 @@
 class Respuesta {
-  constructor(respuestaIndice, posicionCaja) {
+  constructor(respuestaIndice, posicionCaja, nivel) {
     this.posicionCaja = posicionCaja;
+    this.nivel = nivel;
 
     // Añadir una propiedad para el límite inferior
     this.limiteInferior = pantallaJuegoNode.offsetHeight;
@@ -17,6 +18,15 @@ class Respuesta {
       cajaLeft = 600;
     } else if (this.posicionCaja === 3) {
       cajaLeft = 900;
+    }
+
+    let velocidad = 0;
+    if (this.nivel === 1) {
+      this.velocidad = 0.001;
+    } else if (this.nivel === 2) {
+      this.velocidad = 0.005;
+    } else if (this.nivel === 3) {
+      this.velocidad = 0.01;
     }
 
     //tamaños y posicion del div de la pregunta
@@ -58,7 +68,7 @@ class Respuesta {
   }
 
   efectoGravedadRespuestas = () => {
-    this.velocidadY += 0.001;
+    this.velocidadY += this.velocidad;
 
     // Aplicar la velocidad vertical a la posición del contenedor principal
     this.y += this.velocidadY;
