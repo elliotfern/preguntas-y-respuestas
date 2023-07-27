@@ -7,6 +7,7 @@ class Partida {
     this.contadorPartidasWin = win;
     this.nombre = nombre;
 
+    // generamos los elementos de la pantalla juego: contador, pregunta, respuestas, cuadro tema y personaje
     this.contador = new Contador(
       this.contadorPartidas,
       this.contadorVidas,
@@ -15,9 +16,6 @@ class Partida {
     );
 
     this.cuadroTema = new Tema(numIndicePregunta);
-
-    // creamos el personaje del juego, new BugsBunny();
-    this.bugsBunny = new BugsBunny();
     this.cuadroPregunta = new Pregunta(numIndicePregunta);
 
     // generamos las respuesta, que van a ser 4 objetos
@@ -25,5 +23,8 @@ class Partida {
     this.respuesta2 = new Respuesta(numIndicePregunta, 1);
     this.respuesta3 = new Respuesta(numIndicePregunta, 2);
     this.respuesta4 = new Respuesta(numIndicePregunta, 3);
+
+    // creamos el personaje del juego, new BugsBunny();
+    this.bugsBunny = new BugsBunny();
   }
 }

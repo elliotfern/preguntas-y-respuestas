@@ -11,16 +11,58 @@ body {
   height: 100%; /* Centramos en toda la altura de la pantalla */
 }
 
+.container-home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.container-logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.container-personajes {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.personaje {
+  text-align: center;
+}
+
 #btn-start,
 #btn-reiniciar {
   background-color: chocolate;
   color: white;
   padding: 20px;
   font-size: 24px;
-  margin-top: 40px;
+  margin-top: 05px;
   border-radius: 20px;
   font-weight: bold;
   text-transform: uppercase;
+}
+
+.btn-personaje {
+  background-color: rgb(12, 60, 43);
+  color: white;
+  padding: 20px;
+  font-size: 24px;
+  margin-top: 05px;
+  border-radius: 20px;
+  font-weight: bold;
+  text-transform: capitalize;
 }
 
 .container {
@@ -95,4 +137,11 @@ img {
     width: 400px;
     padding-top: 30px;
   }
+}
+
+/* estilos imagenes */
+.imagen-opcion {
+  width: 140px;
+  height: 200px;
+  margin-bottom: 20px;
 }
