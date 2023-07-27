@@ -41,6 +41,11 @@ class Juego {
       this.personaje,
       this.nivel
     );
+    // Asegúrate de que el audio se reproduzca en bucle.
+    fondoAudio.loop = true;
+    fondoAudio.volume = 0.5;
+    // Inicia la reproducción del audio en bucle.
+    fondoAudio.play();
 
     this.juegoLoop();
   }
@@ -64,6 +69,8 @@ class Juego {
         if (respuestaCorrecta === respuesta.posicionCaja) {
           respuesta.node.style.backgroundColor = "blue";
           this.contadorPartidasWin++;
+          winAudio.volume = 0.5;
+          winAudio.play();
           this.partidaWin();
         }
       }
@@ -129,6 +136,8 @@ class Juego {
       this.contadorVidas--;
       this.contadorPartidas++;
       this.gameOn = true;
+      perderAudio.volume = 0.5;
+      perderAudio.play();
       this.iniciarPartida(); // Reiniciamos el juego cuando el div llega al final
     } else {
       // Continuamos el bucle del juego

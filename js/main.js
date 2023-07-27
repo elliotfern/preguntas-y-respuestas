@@ -26,6 +26,11 @@ const pantallaFinWinNode = document.querySelector("#pantalla-fin-win");
 // nodo juego
 const juegoNode = document.querySelector("#juego");
 
+// audio
+const winAudio = new Audio("../audio/win.wav");
+const perderAudio = new Audio("../audio/explosion.wav");
+const fondoAudio = new Audio("../audio/buzz.mp3");
+
 // objeto juego
 let juegoObj = "";
 
@@ -155,11 +160,15 @@ const startGame = () => {
 const gameOver = () => {
   pantallaFinNode.style.display = "flex";
   pantallaJuegoNode.style.display = "none";
+  fondoAudio.pause();
+  fondoAudio.currentTime = 0;
 };
 
 const gameWin = () => {
   pantallaFinWinNode.style.display = "flex";
   pantallaJuegoNode.style.display = "none";
+  fondoAudio.pause();
+  fondoAudio.currentTime = 0;
 };
 
 // * ADD EVENT LISTENERS *
