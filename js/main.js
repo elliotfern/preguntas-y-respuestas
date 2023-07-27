@@ -27,9 +27,15 @@ const pantallaFinWinNode = document.querySelector("#pantalla-fin-win");
 const juegoNode = document.querySelector("#juego");
 
 // audio
-const winAudio = new Audio("../audio/win.wav");
-const perderAudio = new Audio("../audio/explosion.wav");
-const fondoAudio = new Audio("../audio/buzz.mp3");
+const winAudio = new Audio(
+  "https://github.com/elliotfern/preguntas-y-respuestas/raw/main/audio/win.wav"
+);
+const perderAudio = new Audio(
+  "https://github.com/elliotfern/preguntas-y-respuestas/raw/main/audio/explosion.wav"
+);
+const fondoAudio = new Audio(
+  "https://github.com/elliotfern/preguntas-y-respuestas/raw/main/audio/buzz.mp3"
+);
 
 // objeto juego
 let juegoObj = "";
