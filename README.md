@@ -6,9 +6,9 @@
 
 # Descripción
 
-Este es un juego de preguntas y respuestas construido con clases y objetos de JavaScript, mediante manipulación del DOM. El juegador debe responder correctamente a 10 preguntas, y cuenta con la posibilidad de cometer hasta 3 errores. El jugador puede escoger el personaje que le ayudará a responder correctamente las preguntas y tambien el nivel de dificultad.
+Este es un juego de preguntas y respuestas construido con clases y objetos de JavaScript, mediante manipulación del DOM. El jugador debe responder correctamente a 10 preguntas, y cuenta con la posibilidad de cometer hasta 3 errores. El jugador puede escoger el personaje que le ayudará a responder correctamente las preguntas y tambien el nivel de dificultad.
 
-El juego cuenta con preguntas temáticas de 4 grupos diferentes: historia, geografia, televisión/cine y deportes.
+El juego cuenta con preguntas temáticas de 4 grupos diferentes: historia, geografía, televisión/cine y deportes.
 
 # Funcionalidades principales
 
