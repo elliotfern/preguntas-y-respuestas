@@ -99,3 +99,7 @@ Array de objetos con todas las preguntas y respuesta del juego.
 ### Juego
 
 [Link](https://elliotfern.github.io/preguntas-y-respuestas/)
+
+### Presentación
+
+[Link] (https://docs.google.com/presentation/d/1ep0eEPFEeZ8g7ZO7LJO0Qf6a175Zk_VIGKyFNMEbmto/edit?usp=sharing)
