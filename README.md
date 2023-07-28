@@ -2,71 +2,100 @@
 
 ## [Play the Game!](https://elliotfern.github.io/preguntas-y-respuestas/)
 
-![Logo](https://)
+![Logo](https://raw.githubusercontent.com/elliotfern/preguntas-y-respuestas/main/images/preguntas-respuestas-logo.png)
 
-# Description
+# Descripción
 
-Add a simple description of your game here.
+Este es un juego de preguntas y respuestas construido con clases y objetos de JavaScript, mediante manipulación del DOM. El juegador debe responder correctamente a 10 preguntas, y cuenta con la posibilidad de cometer hasta 3 errores. El jugador puede escoger el personaje que le ayudará a responder correctamente las preguntas y tambien el nivel de dificultad.
 
-# Main Functionalities
+El juego cuenta con preguntas temáticas de 4 grupos diferentes: historia, geografia, televisión/cine y deportes.
 
-- List here the main functionalities your game will have.
+# Funcionalidades principales
 
-# Backlog Functionalities
+- Elección del personaje (4 opciones: Bugs Bunny, Piolín, Demonio de Tasmania y Coyote).
+- Elección del nivel de dificultad del juego (la velocidad en la que el jugador debe responder a la pregunta).
+- Introducción del nombre del jugador.
+- Se disponen de 3 vidas (se pueden fallar hasta 3 preguntas).
+- Se deben completar 10 preguntas correctamente.
 
-- List here all functionalities you wish to add to your proyect later.
+# Backlog Funcionaliades
 
-# Technologies used
+- Posibilidad de guardar en memoria local la puntuación de cada jugador para tener un histórico de las partidas.
+- Posibilidad de elegir los temas de cada pregunta (actualmente la elección corresponde al programa, no al usuario).
 
-- List here all technologies used in the project like HTML, CSS, Javascript, DOM Manipulation, Local Storage, etc
+# Tecnologías usadas
 
-# States
+- HTML
+- CSS
+- Javascript
+- DOM Manipulation
 
-- List here the different screens of your game.
+# Estados
 
-# Proyect Structure
+- Pantalla de inicio
+- Pantalla de juego
+- Pantalla juego ganado
+- Pantalla juego perdido
 
-- List here sections for your your different JS files.
-- One for main.js to manage DOM elements, one for the Game class and one for each other class file of your game.
-- Inside each file you can list the functions, clases, properties and methods of your code.
-
-Example:
+# Estructura del proyecto
 
 ## main.js
 
-- list here the functions names of your main.js
+Funciones principales main.js:
 
-## Game.js
+- startGame()
+- startScreen()
+- gameOver()
+- gameWin()
 
-- Game () {
-  this.player;
-  }
+## juego.js
 
-## Player.js
+Clase Juego:
 
-- Player () {
-  this.x;
-  this.y;
-  this.w;
-  this.h;
-  }
-- drawPlayer () {}
-- movePlayer () {}
+- iniciarPartida()
+- juegoLoop()
+- generarNumRandom()
+- randomEligirPregunta()
+  collisionPreguntaCorrecta()
+- partidaWin()
 
-# Extra Links
+## partida.js
 
-### Sketch
+Clase Partida:
 
-[Link](www.your-excalidraw-url-here.com)
+- Aqui se generan las clases: contador, tema, pregunta, respuesta y bugsbunny
 
-### Trello
+## tema.js
 
-[Link](www.your-trello-url-here.com)
+Clase Tema
 
-### Slides
+## contador.js
 
-[Link](www.your-slides-url-here.com)
+Clase Contador
 
-## Deploy
+## pregunta.js
 
-[Link](www.your-deploy-url-here.com)
+Clase Pregunta
+
+## respuesta.js
+
+Clase Respuesta
+
+- efectoGravedadRespuestas()
+
+## bugsbunny.js
+
+Clase BugsBunny
+
+- movimientoBugs()
+- positionUpdate()
+
+## data-preguntas.js
+
+Array de objetos con todas las preguntas y respuesta del juego.
+
+# Links
+
+### Juego
+
+[Link](https://elliotfern.github.io/preguntas-y-respuestas/)
